@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Records</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+        </div>
+
+    </nav>
+
+
+    <section class="records-section">
+
+        <div class="records-container">
+
+            <h1>📋 All Patient Records</h1>
+
+            <p>
+                List of all registered patients
+            </p>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Patient ID</th>
+
+                            <th>Name</th>
+
+                            <th>Age</th>
+
+                            <th>Gender</th>
+
+                            <th>Disease</th>
+
+                            <th>Contact</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for patient in patients %}
+
+                        <tr>
+
+                            <td>{{ patient[0] }}</td>
+
+                            <td>{{ patient[1] }}</td>
+
+                            <td>{{ patient[2] }}</td>
+
+                            <td>{{ patient[3] }}</td>
+
+                            <td>{{ patient[4] }}</td>
+
+                            <td>{{ patient[5] }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            {% if not patients %}
+
+            <p class="no-records">
+                No patient records found.
+            </p>
+
+            {% endif %}
+
+
+            <a href="/" class="back-button">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

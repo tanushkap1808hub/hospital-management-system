@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Department Graph</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- DEPARTMENT GRAPH -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                🏥 Hospital Department Graph
+            </h1>
+
+            <p>
+                View connections between different
+                hospital departments using Graph.
+            </p>
+
+
+            <!-- DEPARTMENT GRAPH -->
+
+            <div style="
+                margin-top: 25px;
+            ">
+
+                <h2>
+                    Department Connections
+                </h2>
+
+
+                {% for department, connections in graph.items() %}
+
+                <div style="
+                    padding: 15px;
+                    margin-top: 12px;
+                    background: #f4f7fb;
+                    border-radius: 10px;
+                ">
+
+                    <strong>
+                        {{ department }}
+                    </strong>
+
+                    <span>
+                        →
+                    </span>
+
+                    {% for connection in connections %}
+
+                        <span style="
+                            display: inline-block;
+                            padding: 7px 12px;
+                            margin: 3px;
+                            background: white;
+                            border-radius: 6px;
+                        ">
+
+                            {{ connection }}
+
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+
+            <!-- GRAPH EXPLANATION -->
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    📚 Graph Representation
+                </h2>
+
+                <p>
+                    Each hospital department is represented
+                    as a vertex.
+                </p>
+
+                <p>
+                    The connection between two departments
+                    is represented as an edge.
+                </p>
+
+                <p>
+                    This graph is stored using an
+                    <strong>Adjacency List</strong>.
+                </p>
+
+            </div>
+
+
+
+            <!-- BACK BUTTON -->
+
+            <a href="/" class="back-button">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

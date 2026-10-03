@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Patient Medical History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏥 Patient Medical History</h1>
+
+    <a href="/" class="back-button">← Back to Home</a>
+
+    <hr>
+
+    <h2>Search Patient History</h2>
+
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+
+        <label>Patient ID</label>
+
+        <input type="number"
+               name="patient_id"
+               placeholder="Enter Patient ID"
+               required>
+
+        <button type="submit">
+            Search History
+        </button>
+
+    </form>
+
+
+    {% if patient %}
+
+        <hr>
+
+        <h2>Patient Details</h2>
+
+        <div class="patient-card">
+
+            <p>
+                <strong>Patient ID:</strong>
+                {{ patient[0] }}
+            </p>
+
+            <p>
+                <strong>Name:</strong>
+                {{ patient[1] }}
+            </p>
+
+            <p>
+                <strong>Age:</strong>
+                {{ patient[2] }}
+            </p>
+
+            <p>
+                <strong>Gender:</strong>
+                {{ patient[3] }}
+            </p>
+
+            <p>
+                <strong>Disease:</strong>
+                {{ patient[4] }}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ patient[5] }}
+            </p>
+
+        </div>
+
+
+        <hr>
+
+        <h2>Add Medical History</h2>
+
+        <form action="/add-medical-history"
+              method="POST">
+
+            <input type="hidden"
+                   name="patient_id"
+                   value="{{ patient[0] }}">
+
+            <label>Date</label>
+
+            <input type="date"
+                   name="date"
+                   required>
+
+
+            <label>Doctor Name</label>
+
+            <input type="text"
+                   name="doctor"
+                   placeholder="Enter doctor name"
+                   required>
+
+
+            <label>Diagnosis</label>
+
+            <input type="text"
+                   name="diagnosis"
+                   placeholder="Enter diagnosis"
+                   required>
+
+
+            <label>Treatment</label>
+
+            <textarea name="treatment"
+                      placeholder="Enter treatment details"
+                      required></textarea>
+
+
+            <button type="submit">
+                Add Medical History
+            </button>
+
+        </form>
+
+
+        <hr>
+
+
+        <h2>Previous Medical History</h2>
+
+        {% if history %}
+
+        <table>
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Doctor</th>
+
+                <th>Diagnosis</th>
+
+                <th>Treatment</th>
+
+            </tr>
+
+
+            {% for record in history %}
+
+            <tr>
+
+                <td>
+                    {{ record[2] }}
+                </td>
+
+                <td>
+                    {{ record[3] }}
+                </td>
+
+                <td>
+                    {{ record[4] }}
+                </td>
+
+                <td>
+                    {{ record[5] }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+            <p>
+                No medical history found for this patient.
+            </p>
+
+        {% endif %}
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

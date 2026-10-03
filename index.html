@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Hospital Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="header">
+
+        <div>
+            <h1>🏥 Hospital Management System</h1>
+
+            <p>
+                Efficient Patient Management System
+            </p>
+        </div>
+
+        <div class="header-buttons">
+
+            <!-- DARK MODE BUTTON -->
+
+            <button id="darkModeBtn"
+                    class="dark-mode-btn"
+                    onclick="toggleDarkMode()">
+
+                🌙 Dark Mode
+
+            </button>
+
+
+            <!-- LOGOUT BUTTON -->
+
+            <a href="/logout"
+               class="logout-btn">
+
+                🔓 Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= WELCOME ================= -->
+
+    <div class="welcome-section">
+
+        <h2>
+            Welcome, Admin 👋
+        </h2>
+
+        <p>
+            Manage patients, queues, emergency cases,
+            medical history and hospital departments.
+        </p>
+
+    </div>
+
+
+    <!-- ================= PATIENT MANAGEMENT ================= -->
+
+    <h2>
+        Patient Management
+    </h2>
+
+    <div class="feature-grid">
+
+
+        <!-- REGISTER PATIENT -->
+
+        <a href="/register"
+           class="feature-card">
+
+            <div class="feature-icon">
+                📝
+            </div>
+
+            <h3>
+                Register Patient
+            </h3>
+
+            <p>
+                Register a new patient in the hospital system.
+            </p>
+
+        </a>
+
+
+        <!-- DISPLAY ALL RECORDS -->
+
+        <a href="/records"
+           class="feature-card">
+
+            <div class="feature-icon">
+                📋
+            </div>
+
+            <h3>
+                Display All Records
+            </h3>
+
+            <p>
+                View all registered patient records.
+            </p>
+
+        </a>
+
+
+        <!-- SEARCH PATIENT -->
+
+        <a href="/search"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🔍
+            </div>
+
+            <h3>
+                Search Patient
+            </h3>
+
+            <p>
+                Search for a patient using Patient ID.
+            </p>
+
+        </a>
+
+
+        <!-- SORT PATIENT RECORDS -->
+
+        <a href="/sort"
+           class="feature-card">
+
+            <div class="feature-icon">
+                ↕️
+            </div>
+
+            <h3>
+                Sort Patient Records
+            </h3>
+
+            <p>
+                Sort patients by ID, name or age.
+            </p>
+
+        </a>
+
+
+        <!-- MEDICAL HISTORY -->
+
+        <a href="/medical-history"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🩺
+            </div>
+
+            <h3>
+                Medical History
+            </h3>
+
+            <p>
+                View and add a patient's medical history.
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= QUEUE MANAGEMENT ================= -->
+
+    <h2>
+        Queue Management
+    </h2>
+
+    <div class="feature-grid">
+
+
+        <!-- NORMAL PATIENT QUEUE -->
+
+        <a href="/queue"
+           class="feature-card">
+
+            <div class="feature-icon">
+                👥
+            </div>
+
+            <h3>
+                Normal Patient Queue
+            </h3>
+
+            <p>
+                Add normal patients to the queue.
+            </p>
+
+        </a>
+
+
+        <!-- CALL NEXT PATIENT -->
+
+        <a href="/call-next"
+           class="feature-card">
+
+            <div class="feature-icon">
+                📢
+            </div>
+
+            <h3>
+                Call Next Patient
+            </h3>
+
+            <p>
+                Call the next patient using FIFO queue.
+            </p>
+
+        </a>
+
+
+        <!-- EMERGENCY PATIENT -->
+
+        <a href="/emergency"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🚨
+            </div>
+
+            <h3>
+                Emergency Patient
+            </h3>
+
+            <p>
+                Manage emergency patients using priority queue.
+            </p>
+
+        </a>
+
+
+        <!-- CALL EMERGENCY PATIENT -->
+
+        <a href="/call-emergency"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🏥
+            </div>
+
+            <h3>
+                Call Emergency Patient
+            </h3>
+
+            <p>
+                Call the highest-priority emergency patient.
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= PATIENT DATA MANAGEMENT ================= -->
+
+    <h2>
+        Patient Data Management
+    </h2>
+
+    <div class="feature-grid">
+
+
+        <!-- PATIENT BST -->
+
+        <a href="/bst"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🌳
+            </div>
+
+            <h3>
+                Patient BST
+            </h3>
+
+            <p>
+                Search patients using Binary Search Tree.
+            </p>
+
+        </a>
+
+
+        <!-- RECENTLY TREATED -->
+
+        <a href="/treated"
+           class="feature-card">
+
+            <div class="feature-icon">
+                📚
+            </div>
+
+            <h3>
+                Recently Treated
+            </h3>
+
+            <p>
+                View recently treated patients.
+            </p>
+
+        </a>
+
+
+        <!-- UNDO -->
+
+        <a href="/undo"
+           class="feature-card">
+
+            <div class="feature-icon">
+                ↩️
+            </div>
+
+            <h3>
+                Undo Last Operation
+            </h3>
+
+            <p>
+                Undo the most recent queue operation.
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= HOSPITAL NETWORK ================= -->
+
+    <h2>
+        Hospital Network
+    </h2>
+
+    <div class="feature-grid">
+
+
+        <!-- AMBULANCE ROUTE -->
+
+        <a href="/ambulance"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🚑
+            </div>
+
+            <h3>
+                Ambulance Route
+            </h3>
+
+            <p>
+                Find the shortest route inside the hospital.
+            </p>
+
+        </a>
+
+
+        <!-- DEPARTMENT GRAPH -->
+
+        <a href="/department"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🏢
+            </div>
+
+            <h3>
+                Hospital Department Graph
+            </h3>
+
+            <p>
+                View connections between hospital departments.
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <div class="footer">
+
+        <p>
+            🏥 Hospital Management System
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DARK MODE JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark-mode");
+
+
+    const button =
+        document.getElementById("darkModeBtn");
+
+
+    if (
+        document.body.classList.contains("dark-mode")
+    ) {
+
+        button.innerHTML =
+            "☀️ Light Mode";
+
+    }
+
+    else {
+
+        button.innerHTML =
+            "🌙 Dark Mode";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

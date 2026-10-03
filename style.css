@@ -1,0 +1,1368 @@
+/* =========================================================
+   HOSPITAL MANAGEMENT SYSTEM
+   PROFESSIONAL MODERN DESIGN
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f8fc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #e2e8f0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(15, 23, 42, 0.06);
+}
+
+
+.logo {
+    font-size: 21px;
+    font-weight: 700;
+    color: #0f5f87;
+
+    letter-spacing: 0.2px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 600;
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    color: #0f8b8d;
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero {
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf8fb,
+            #eef5ff
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(15, 139, 141, 0.08);
+
+    top: -180px;
+    left: -120px;
+}
+
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(30, 136, 229, 0.07);
+
+    bottom: -170px;
+    right: -100px;
+}
+
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero-content h1 {
+    font-size: 52px;
+    line-height: 1.15;
+
+    color: #12344d;
+
+    margin-bottom: 22px;
+
+    font-weight: 800;
+}
+
+
+.hero-content p {
+    font-size: 19px;
+
+    color: #64748b;
+
+    max-width: 650px;
+
+    margin: 0 auto 32px;
+}
+
+
+.hero-button {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background: #0f8b8d;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(15, 139, 141, 0.22);
+
+    transition: all 0.3s ease;
+}
+
+
+.hero-button:hover {
+    transform: translateY(-3px);
+
+    background: #087477;
+
+    box-shadow:
+        0 12px 25px rgba(15, 139, 141, 0.30);
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.features,
+.about {
+    padding: 75px 7%;
+}
+
+
+.features {
+    background: #ffffff;
+}
+
+
+.section-title {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 45px;
+}
+
+
+.section-title h2 {
+    font-size: 32px;
+
+    color: #12344d;
+
+    margin-bottom: 10px;
+}
+
+
+.section-title p {
+    color: #64748b;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   CARDS GRID
+   ========================================================= */
+
+.cards {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+    background: white;
+
+    padding: 30px 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5edf4;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.06);
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #0f8b8d;
+}
+
+
+.card:hover {
+    transform: translateY(-7px);
+
+    border-color: #b9e5e6;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.10);
+}
+
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #eaf8f8;
+
+    font-size: 30px;
+}
+
+
+.card h3 {
+    font-size: 20px;
+
+    color: #12344d;
+
+    margin-bottom: 10px;
+}
+
+
+.card p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    min-height: 68px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+   ========================================================= */
+
+.card-button {
+    display: inline-block;
+
+    padding: 10px 22px;
+
+    border-radius: 8px;
+
+    background: #0f8b8d;
+
+    color: white;
+
+    text-decoration: none;
+
+    border: none;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.card-button:hover {
+    background: #087477;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about {
+    background: #f4f8fc;
+}
+
+
+.about-content {
+    max-width: 900px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.06);
+
+    border: 1px solid #e5edf4;
+}
+
+
+.about-content h2 {
+    font-size: 30px;
+
+    color: #12344d;
+
+    margin-bottom: 20px;
+}
+
+
+.about-content p {
+    color: #64748b;
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FORM / REGISTER PAGES
+   ========================================================= */
+
+.register-section {
+    min-height: calc(100vh - 72px);
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f8fc,
+            #eef9fa
+        );
+}
+
+
+.register-container {
+    max-width: 850px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+
+.register-container h1 {
+    text-align: center;
+
+    color: #12344d;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+
+.register-container > p {
+    text-align: center;
+
+    color: #64748b;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+label {
+    display: block;
+
+    margin-top: 18px;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-weight: 700;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0f8b8d;
+
+    box-shadow:
+        0 0 0 3px rgba(15, 139, 141, 0.10);
+}
+
+
+/* =========================================================
+   FORM BUTTON
+   ========================================================= */
+
+form button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #0f8b8d;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+form button:hover {
+    background: #087477;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(15, 139, 141, 0.20);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 25px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.06);
+}
+
+
+th {
+    background: #12344d;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+
+td {
+    padding: 13px 14px;
+
+    border-bottom: 1px solid #e8eef3;
+
+    color: #475569;
+
+    font-size: 14px;
+}
+
+
+tr:hover td {
+    background: #f4fafb;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 11px 22px;
+
+    background: #12344d;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.back-button:hover {
+    background: #0f8b8d;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.success {
+    padding: 14px 18px;
+
+    margin-top: 20px;
+
+    border-radius: 9px;
+
+    background: #e9f8f0;
+
+    color: #18794e;
+
+    border: 1px solid #b8e4cc;
+
+    font-weight: 600;
+}
+
+
+.error {
+    padding: 14px 18px;
+
+    margin-top: 20px;
+
+    border-radius: 9px;
+
+    background: #fff1f1;
+
+    color: #c62828;
+
+    border: 1px solid #f1c1c1;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: #12344d;
+
+    color: #cbd5e1;
+}
+
+
+footer p {
+    margin: 4px 0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #edf2f7;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #9bbfc5;
+
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0f8b8d;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 18px 5%;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .nav-links {
+        gap: 18px;
+    }
+
+
+    .hero {
+        min-height: 450px;
+
+        padding: 50px 20px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+
+    .features,
+    .about {
+        padding: 55px 5%;
+    }
+
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+
+    .register-container {
+        padding: 25px 20px;
+    }
+
+
+    .register-container h1 {
+        font-size: 27px;
+    }
+
+
+    .about-content {
+        padding: 30px 25px;
+    }
+
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 17px;
+    }
+
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+   HOSPITAL MANAGEMENT SYSTEM HOME PAGE
+   ===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 35px 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+    border: 1px solid #e5edf4;
+}
+
+.header h1 {
+    color: #12344d;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #64748b;
+    font-size: 16px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.logout-btn,
+.exit-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.logout-btn {
+    background: #0f8b8d;
+    color: white;
+}
+
+.exit-btn {
+    background: #12344d;
+    color: white;
+}
+
+.logout-btn:hover,
+.exit-btn:hover {
+    transform: translateY(-2px);
+}
+
+.welcome-section {
+    background: linear-gradient(
+        135deg,
+        #eaf8fb,
+        #eef5ff
+    );
+
+    padding: 30px;
+    border-radius: 18px;
+    margin: 25px 0 40px;
+    border: 1px solid #e5edf4;
+}
+
+.welcome-section h2 {
+    color: #12344d;
+    margin-bottom: 8px;
+}
+
+.welcome-section p {
+    color: #64748b;
+}
+
+.container > h2 {
+    color: #12344d;
+    font-size: 28px;
+    margin: 35px 0 20px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+    );
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.feature-card {
+    display: block;
+    position: relative;
+
+    background: white;
+    padding: 28px 24px;
+
+    border-radius: 16px;
+    border: 1px solid #e5edf4;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.06);
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #0f8b8d;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #b9e5e6;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.10);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+
+    border-radius: 15px;
+
+    background: #eaf8f8;
+
+    font-size: 28px;
+}
+
+.feature-card h3 {
+    color: #12344d;
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.footer {
+    text-align: center;
+
+    margin-top: 40px;
+    padding: 25px;
+
+    background: #12344d;
+
+    color: #cbd5e1;
+
+    border-radius: 15px;
+}
+
+.footer p {
+    margin: 4px;
+}
+
+
+/* =====================================================
+   MEDICAL HISTORY / OTHER PAGES
+   ===================================================== */
+
+.patient-card {
+    background: white;
+
+    padding: 25px;
+
+    margin-top: 20px;
+
+    border-radius: 15px;
+
+    border: 1px solid #e5edf4;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =====================================================
+   EXIT PAGE
+   ===================================================== */
+
+.exit-box {
+    max-width: 700px;
+
+    margin: 100px auto;
+
+    padding: 50px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.10);
+}
+
+.exit-box h1 {
+    color: #12344d;
+    margin-bottom: 20px;
+}
+
+.exit-box h2 {
+    color: #0f8b8d;
+    margin-bottom: 15px;
+}
+
+.exit-box p {
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.button {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    background: #0f8b8d;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+}
+
+.button:hover {
+    background: #087477;
+}
+
+
+/* =====================================================
+   LOGIN PAGE
+   ===================================================== */
+
+.login-container {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf8fb,
+            #eef5ff
+        );
+
+    padding: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 450px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.10);
+
+    border: 1px solid #e5edf4;
+
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #12344d;
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.login-box h2 {
+    color: #0f8b8d;
+
+    margin-bottom: 25px;
+}
+
+.login-box label {
+    text-align: left;
+}
+
+.login-info {
+    margin-top: 20px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 20px 15px;
+    }
+
+    .header {
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .header-buttons {
+        justify-content: center;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+   DARK MODE
+   ===================================================== */
+
+.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+.dark-mode .header {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.dark-mode .header h1 {
+    color: #f1f5f9;
+}
+
+.dark-mode .header p {
+    color: #94a3b8;
+}
+
+.dark-mode .welcome-section {
+    background: linear-gradient(
+        135deg,
+        #172a3a,
+        #1e293b
+    );
+
+    border-color: #334155;
+}
+
+.dark-mode .welcome-section h2 {
+    color: #f1f5f9;
+}
+
+.dark-mode .welcome-section p {
+    color: #94a3b8;
+}
+
+.dark-mode .container > h2 {
+    color: #f1f5f9;
+}
+
+.dark-mode .feature-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.dark-mode .feature-card h3 {
+    color: #f1f5f9;
+}
+
+.dark-mode .feature-card p {
+    color: #94a3b8;
+}
+
+.dark-mode .feature-icon {
+    background: #26384d;
+}
+
+.dark-mode .patient-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.dark-mode table {
+    background: #1e293b;
+}
+
+.dark-mode td {
+    color: #cbd5e1;
+    border-color: #334155;
+}
+
+.dark-mode tr:hover td {
+    background: #263548;
+}
+
+.dark-mode label {
+    color: #cbd5e1;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background: #1e293b;
+    color: #f1f5f9;
+    border-color: #475569;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #94a3b8;
+}
+
+.dark-mode .footer {
+    background: #020617;
+}
+
+
+/* =====================================================
+   DARK MODE BUTTON
+   ===================================================== */
+
+.dark-mode-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+
+    background: #12344d;
+    color: white;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dark-mode-btn:hover {
+    transform: translateY(-2px);
+    background: #0f8b8d;
+}
+
+.dark-mode .dark-mode-btn {
+    background: #f1f5f9;
+    color: #0f172a;
+}

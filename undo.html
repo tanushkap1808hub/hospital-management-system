@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Undo Last Operation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= UNDO SECTION ================= -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                ↩️ Undo Last Operation
+            </h1>
+
+            <p>
+                Reverse the most recent patient
+                operation using a Stack.
+            </p>
+
+
+
+            <!-- STACK INFORMATION -->
+
+            <div style="
+                margin-top: 25px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    📚 Undo Stack
+                </h2>
+
+                <p>
+                    Every patient call operation is stored
+                    in the Undo Stack.
+                </p>
+
+                <p>
+                    The Stack follows
+                    <strong>LIFO</strong>:
+                    Last In, First Out.
+                </p>
+
+                <p>
+                    Therefore, the most recent operation
+                    is undone first.
+                </p>
+
+            </div>
+
+
+
+            <!-- UNDO BUTTON -->
+
+            <div style="
+                margin-top: 30px;
+                text-align: center;
+            ">
+
+                <a href="/undo"
+                   class="card-button">
+
+                    ↩️ Undo Last Operation
+
+                </a>
+
+            </div>
+
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            {% if message %}
+
+            <div style="
+                margin-top: 25px;
+                padding: 18px;
+                background: #f4f7fb;
+                border-radius: 10px;
+                text-align: center;
+            ">
+
+                <h3>
+                    ✅ {{ message }}
+                </h3>
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- ERROR MESSAGE -->
+
+            {% if error %}
+
+            <div style="
+                margin-top: 25px;
+                padding: 18px;
+                background: #f4f7fb;
+                border-radius: 10px;
+                text-align: center;
+            ">
+
+                <h3>
+                    ⚠️ {{ error }}
+                </h3>
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- STACK STATUS -->
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    📊 Undo Stack Status
+                </h2>
+
+                <p>
+                    Operations available to undo:
+                    <strong>{{ undo_count }}</strong>
+                </p>
+
+                {% if undo_count > 0 %}
+
+                <p>
+                    The latest operation can be
+                    undone by clicking the button above.
+                </p>
+
+                {% else %}
+
+                <p>
+                    No operations are currently
+                    available to undo.
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- HOW IT WORKS -->
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    🔄 How Undo Works
+                </h2>
+
+                <p>
+                    1. A patient is called from a queue.
+                </p>
+
+                <p>
+                    2. The operation is pushed into
+                    the Undo Stack.
+                </p>
+
+                <p>
+                    3. The patient is added to the
+                    Recently Treated Stack.
+                </p>
+
+                <p>
+                    4. When Undo is clicked, the latest
+                    operation is popped.
+                </p>
+
+                <p>
+                    5. The patient is returned to the
+                    appropriate queue.
+                </p>
+
+            </div>
+
+
+
+            <!-- BACK BUTTON -->
+
+            <a href="/"
+               class="back-button">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

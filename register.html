@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register Patient</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= REGISTER SECTION ================= -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+
+            <h1>
+                👤 Register Patient
+            </h1>
+
+
+            <p>
+                Enter the patient's information below.
+            </p>
+
+
+            <!-- ERROR MESSAGE -->
+
+            {% if error %}
+
+            <p style="
+                color: red;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            ">
+                ❌ {{ error }}
+            </p>
+
+            {% endif %}
+
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form method="POST">
+
+
+                <!-- PATIENT ID -->
+
+                <label>
+                    Patient ID
+                </label>
+
+                <input
+                    type="number"
+                    name="patient_id"
+                    placeholder="Enter patient ID"
+                    required
+                >
+
+
+
+                <!-- PATIENT NAME -->
+
+                <label>
+                    Patient Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter patient name"
+                    required
+                >
+
+
+
+                <!-- AGE -->
+
+                <label>
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    name="age"
+                    placeholder="Enter age"
+                    min="1"
+                    max="120"
+                    required
+                >
+
+
+
+                <!-- GENDER -->
+
+                <label>
+                    Gender
+                </label>
+
+                <select name="gender" required>
+
+                    <option value="">
+                        Select Gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+
+                <!-- DISEASE -->
+
+                <label>
+                    Disease
+                </label>
+
+                <input
+                    type="text"
+                    name="disease"
+                    placeholder="Enter disease"
+                    required
+                >
+
+
+
+                <!-- PHONE -->
+
+                <label>
+                    Contact Number
+                </label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter contact number"
+                    required
+                >
+
+
+
+                <!-- SUBMIT -->
+
+                <button type="submit">
+                    Register Patient
+                </button>
+
+
+            </form>
+
+
+
+            <!-- BACK BUTTON -->
+
+            <a href="/" class="back-button">
+                ← Back to Home
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

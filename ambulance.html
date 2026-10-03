@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ambulance Route</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- AMBULANCE ROUTE SECTION -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                🚑 Ambulance Route
+            </h1>
+
+            <p>
+                Find the route between hospital locations
+                using Graph data structure.
+            </p>
+
+
+            <!-- ROUTE FORM -->
+
+            <form method="POST">
+
+                <label>
+                    Starting Location
+                </label>
+
+                <select name="start" required>
+
+                    <option value="">
+                        Select Starting Location
+                    </option>
+
+                    <option value="Emergency">
+                        Emergency
+                    </option>
+
+                    <option value="Reception">
+                        Reception
+                    </option>
+
+                    <option value="ICU">
+                        ICU
+                    </option>
+
+                    <option value="Operation Theatre">
+                        Operation Theatre
+                    </option>
+
+                    <option value="Pharmacy">
+                        Pharmacy
+                    </option>
+
+                </select>
+
+
+                <label>
+                    Destination
+                </label>
+
+                <select name="destination" required>
+
+                    <option value="">
+                        Select Destination
+                    </option>
+
+                    <option value="Emergency">
+                        Emergency
+                    </option>
+
+                    <option value="Reception">
+                        Reception
+                    </option>
+
+                    <option value="ICU">
+                        ICU
+                    </option>
+
+                    <option value="Operation Theatre">
+                        Operation Theatre
+                    </option>
+
+                    <option value="Pharmacy">
+                        Pharmacy
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Find Ambulance Route
+                </button>
+
+            </form>
+
+
+
+            <!-- ROUTE RESULT -->
+
+            {% if route %}
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    🚑 Route Found
+                </h2>
+
+                <p>
+                    <strong>Starting Point:</strong>
+                    {{ start }}
+                </p>
+
+                <p>
+                    <strong>Destination:</strong>
+                    {{ destination }}
+                </p>
+
+                <p>
+                    <strong>Route:</strong>
+                </p>
+
+                <p style="
+                    font-weight: bold;
+                    font-size: 18px;
+                ">
+
+                    {% for location in route %}
+
+                        {{ location }}
+
+                        {% if not loop.last %}
+                            → 
+                        {% endif %}
+
+                    {% endfor %}
+
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <p style="
+                color: red;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+
+                ❌ {{ error }}
+
+            </p>
+
+            {% endif %}
+
+
+
+            <!-- GRAPH INFORMATION -->
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    🕸️ Hospital Graph
+                </h2>
+
+                <p>
+                    The hospital locations are represented
+                    as vertices and the connections between
+                    them are represented as edges.
+                </p>
+
+                <p>
+                    <strong>Locations:</strong>
+                    Emergency, Reception, ICU,
+                    Operation Theatre, Pharmacy
+                </p>
+
+            </div>
+
+
+
+            <!-- BACK BUTTON -->
+
+            <a href="/" class="back-button">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

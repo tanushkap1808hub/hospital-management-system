@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Normal Patient Queue</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= QUEUE SECTION ================= -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                📋 Normal Patient Queue
+            </h1>
+
+            <p>
+                Manage normal patients using the Queue data structure.
+            </p>
+
+
+            <!-- ADD PATIENT TO QUEUE -->
+
+            <form method="POST">
+
+                <label>
+                    Patient ID
+                </label>
+
+                <input
+                    type="number"
+                    name="patient_id"
+                    placeholder="Enter Patient ID"
+                    required
+                >
+
+                <button type="submit">
+                    Add to Queue
+                </button>
+
+            </form>
+
+
+
+            <!-- MESSAGE -->
+
+            {% if message %}
+
+            <p style="
+                color: green;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+                ✅ {{ message }}
+            </p>
+
+            {% endif %}
+
+
+
+            {% if error %}
+
+            <p style="
+                color: red;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+                ❌ {{ error }}
+            </p>
+
+            {% endif %}
+
+
+
+            <!-- CURRENT QUEUE -->
+
+            <div style="
+                margin-top: 30px;
+            ">
+
+                <h2>
+                    Current Queue
+                </h2>
+
+
+                {% if queue %}
+
+                    {% for patient in queue %}
+
+                    <div style="
+                        padding: 15px;
+                        margin-top: 10px;
+                        background: #f4f7fb;
+                        border-radius: 8px;
+                    ">
+
+                        <strong>
+                            {{ loop.index }}.
+                        </strong>
+
+                        Patient ID:
+                        {{ patient[0] }}
+
+                        &nbsp; | &nbsp;
+
+                        Name:
+                        {{ patient[1] }}
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p>
+                        Queue is currently empty.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- CALL NEXT PATIENT -->
+
+            <a
+                href="/call-next"
+                class="card-button"
+                style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 25px;
+                "
+            >
+                📞 Call Next Patient
+            </a>
+
+
+
+            <!-- BACK -->
+
+            <a href="/" class="back-button">
+                ← Back to Home
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Patient BST</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- BST SECTION -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                🌳 Patient BST
+            </h1>
+
+            <p>
+                Search patients using a Binary Search Tree.
+            </p>
+
+
+            <!-- SEARCH IN BST -->
+
+            <form method="POST">
+
+                <label>
+                    Enter Patient ID
+                </label>
+
+                <input
+                    type="number"
+                    name="patient_id"
+                    placeholder="Enter Patient ID"
+                    required
+                >
+
+                <button type="submit">
+                    Search in BST
+                </button>
+
+            </form>
+
+
+            <!-- SEARCH RESULT -->
+
+            {% if found_patient %}
+
+            <div style="
+                margin-top: 25px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    ✅ Patient Found
+                </h2>
+
+                <p>
+                    <strong>Patient ID:</strong>
+                    {{ found_patient[0] }}
+                </p>
+
+                <p>
+                    <strong>Name:</strong>
+                    {{ found_patient[1] }}
+                </p>
+
+                <p>
+                    <strong>Age:</strong>
+                    {{ found_patient[2] }}
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    {{ found_patient[3] }}
+                </p>
+
+                <p>
+                    <strong>Disease:</strong>
+                    {{ found_patient[4] }}
+                </p>
+
+                <p>
+                    <strong>Contact:</strong>
+                    {{ found_patient[5] }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <p style="
+                color: red;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+
+                ❌ {{ error }}
+
+            </p>
+
+            {% endif %}
+
+
+            <!-- BST TRAVERSAL -->
+
+            <div style="
+                margin-top: 30px;
+            ">
+
+                <h2>
+                    BST In-Order Traversal
+                </h2>
+
+                <p>
+                    Patient IDs in sorted order:
+                </p>
+
+
+                {% if patients %}
+
+                    <div style="
+                        padding: 15px;
+                        background: #f4f7fb;
+                        border-radius: 10px;
+                    ">
+
+                        {% for patient in patients %}
+
+                            <span style="
+                                display: inline-block;
+                                padding: 10px 15px;
+                                margin: 5px;
+                                background: white;
+                                border-radius: 7px;
+                                font-weight: bold;
+                            ">
+
+                                {{ patient[0] }}
+
+                            </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+
+                    <p>
+                        No patients registered yet.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- BACK -->
+
+            <a href="/" class="back-button">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

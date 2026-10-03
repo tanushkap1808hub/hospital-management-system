@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Search Patient</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                🔍 Search Patient
+            </h1>
+
+            <p>
+                Enter the Patient ID to search for a patient.
+            </p>
+
+
+            <form method="POST">
+
+                <label>
+                    Patient ID
+                </label>
+
+                <input
+                    type="number"
+                    name="patient_id"
+                    placeholder="Enter Patient ID"
+                    required
+                >
+
+
+                <button type="submit">
+                    Search Patient
+                </button>
+
+            </form>
+
+
+            {% if patient %}
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    Patient Found
+                </h2>
+
+                <p>
+                    <strong>Patient ID:</strong>
+                    {{ patient[0] }}
+                </p>
+
+                <p>
+                    <strong>Name:</strong>
+                    {{ patient[1] }}
+                </p>
+
+                <p>
+                    <strong>Age:</strong>
+                    {{ patient[2] }}
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    {{ patient[3] }}
+                </p>
+
+                <p>
+                    <strong>Disease:</strong>
+                    {{ patient[4] }}
+                </p>
+
+                <p>
+                    <strong>Contact:</strong>
+                    {{ patient[5] }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            {% if error %}
+
+            <p style="
+                color: red;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+                ❌ {{ error }}
+            </p>
+
+            {% endif %}
+
+
+            <a href="/" class="back-button">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

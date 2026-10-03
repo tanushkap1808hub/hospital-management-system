@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Recently Treated Patients</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= TREATED PATIENTS ================= -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                🩺 Recently Treated Patients
+            </h1>
+
+            <p>
+                View recently treated patients using
+                the Stack data structure.
+            </p>
+
+
+
+            <!-- STACK INFORMATION -->
+
+            <div style="
+                margin-top: 25px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    📚 Stack Data Structure
+                </h2>
+
+                <p>
+                    Recently treated patients are stored
+                    using a Stack.
+                </p>
+
+                <p>
+                    A Stack follows the
+                    <strong>LIFO</strong> principle:
+                    Last In, First Out.
+                </p>
+
+                <p>
+                    The patient treated most recently
+                    appears at the top of the stack.
+                </p>
+
+            </div>
+
+
+
+            <!-- PATIENT LIST -->
+
+            <div style="
+                margin-top: 30px;
+            ">
+
+                <h2>
+                    Treated Patients
+                </h2>
+
+
+                {% if patients %}
+
+
+                    {% for patient in patients %}
+
+                    <div style="
+                        padding: 18px;
+                        margin-top: 12px;
+                        background: #f4f7fb;
+                        border-radius: 10px;
+                    ">
+
+                        <h3>
+                            🩺 {{ patient[1] }}
+                        </h3>
+
+                        <p>
+                            <strong>Patient ID:</strong>
+                            {{ patient[0] }}
+                        </p>
+
+                        <p>
+                            <strong>Age:</strong>
+                            {{ patient[2] }}
+                        </p>
+
+                        <p>
+                            <strong>Gender:</strong>
+                            {{ patient[3] }}
+                        </p>
+
+                        <p>
+                            <strong>Disease:</strong>
+                            {{ patient[4] }}
+                        </p>
+
+                        <p>
+                            <strong>Phone:</strong>
+                            {{ patient[5] }}
+                        </p>
+
+
+                        {% if loop.first %}
+
+                        <p style="
+                            font-weight: bold;
+                            margin-top: 10px;
+                        ">
+
+                            🔝 Top of Stack
+
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+                    {% endfor %}
+
+
+                {% else %}
+
+                    <div style="
+                        margin-top: 20px;
+                        padding: 20px;
+                        background: #f4f7fb;
+                        border-radius: 10px;
+                        text-align: center;
+                    ">
+
+                        <h3>
+                            📭 No Treated Patients Yet
+                        </h3>
+
+                        <p>
+                            Patients will appear here after
+                            they are called from the normal
+                            or emergency queue.
+                        </p>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- STACK VISUALIZATION -->
+
+            {% if patients %}
+
+            <div style="
+                margin-top: 30px;
+                padding: 20px;
+                background: #f4f7fb;
+                border-radius: 10px;
+            ">
+
+                <h2>
+                    📚 Stack Representation
+                </h2>
+
+                <p>
+                    TOP
+                </p>
+
+
+                {% for patient in patients %}
+
+                <div style="
+                    padding: 12px;
+                    margin-top: 6px;
+                    background: white;
+                    border-radius: 6px;
+                    text-align: center;
+                    font-weight: bold;
+                ">
+
+                    {{ patient[1] }}
+
+                </div>
+
+                {% endfor %}
+
+
+                <p style="
+                    margin-top: 10px;
+                ">
+
+                    BOTTOM
+
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- BACK BUTTON -->
+
+            <a href="/"
+               class="back-button">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

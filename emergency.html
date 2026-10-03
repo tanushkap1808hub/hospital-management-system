@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Emergency Patient</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🏥 Hospital Management System
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- EMERGENCY SECTION -->
+
+    <section class="register-section">
+
+        <div class="register-container">
+
+            <h1>
+                🚨 Emergency Patient
+            </h1>
+
+            <p>
+                Manage emergency patients using Priority Queue.
+            </p>
+
+
+            <!-- ADD EMERGENCY PATIENT -->
+
+            <form method="POST">
+
+                <label>
+                    Patient ID
+                </label>
+
+                <input
+                    type="number"
+                    name="patient_id"
+                    placeholder="Enter Patient ID"
+                    required
+                >
+
+
+                <label>
+                    Emergency Priority
+                </label>
+
+                <select name="priority" required>
+
+                    <option value="">
+                        Select Priority
+                    </option>
+
+                    <option value="1">
+                        1 - Critical
+                    </option>
+
+                    <option value="2">
+                        2 - Serious
+                    </option>
+
+                    <option value="3">
+                        3 - Normal Emergency
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Add Emergency Patient
+                </button>
+
+            </form>
+
+
+
+            <!-- MESSAGE -->
+
+            {% if message %}
+
+            <p style="
+                color: green;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+
+                ✅ {{ message }}
+
+            </p>
+
+            {% endif %}
+
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <p style="
+                color: red;
+                font-weight: bold;
+                text-align: center;
+                margin-top: 20px;
+            ">
+
+                ❌ {{ error }}
+
+            </p>
+
+            {% endif %}
+
+
+
+            <!-- EMERGENCY QUEUE -->
+
+            <div style="
+                margin-top: 30px;
+            ">
+
+                <h2>
+                    Emergency Queue
+                </h2>
+
+
+                {% if emergency_queue %}
+
+                    {% for patient in emergency_queue %}
+
+                    <div style="
+                        padding: 15px;
+                        margin-top: 10px;
+                        background: #f4f7fb;
+                        border-radius: 8px;
+                    ">
+
+                        <strong>
+                            {{ loop.index }}.
+                        </strong>
+
+                        Patient ID:
+                        {{ patient[0] }}
+
+                        &nbsp; | &nbsp;
+
+                        Name:
+                        {{ patient[1] }}
+
+                        &nbsp; | &nbsp;
+
+                        Priority:
+                        {{ patient[6] }}
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p>
+                        Emergency queue is currently empty.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- CALL EMERGENCY PATIENT -->
+
+            <a
+                href="/call-emergency"
+                class="card-button"
+                style="
+                    display: block;
+                    text-align: center;
+                    margin-top: 25px;
+                "
+            >
+                🚨 Call Emergency Patient
+            </a>
+
+
+
+            <!-- BACK -->
+
+            <a href="/" class="back-button">
+
+                ← Back to Home
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
